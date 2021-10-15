@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const RelatedVideoes = (props) => {
+const RelatedVideos = (props) => {
     return ( 
         <div>
             
@@ -9,4 +9,4 @@ const RelatedVideoes = (props) => {
      );
 }
  
-export default RelatedVideoes;
+export default RelatedVideos;
