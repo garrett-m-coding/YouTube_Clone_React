@@ -7,7 +7,9 @@ class App extends Component {
     }
     render() { 
         return (
-            <h1> What's up? You wanna buy some YouTube?!</h1>
+            <div>
+                <h1> What's up? You wanna buy some YouTube?!</h1>
+            </div>
         );
     }
 }
