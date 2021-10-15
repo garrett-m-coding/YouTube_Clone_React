@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import VideoPlayer from './VideoPlayer/VideoPlayer';
+import AddComment from './Comments/Comments';
 
 class App extends Component {
     constructor(props) {
@@ -33,6 +34,7 @@ class App extends Component {
                 {console.log(this.state.video)}
                 <h1> What's up? You wanna buy some YouTube?!</h1>
                 <VideoPlayer />
+                <AddComment />
             </div>
         );
     }
