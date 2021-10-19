@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import VideoPlayer from './VideoPlayer/VideoPlayer';
 import Comments from './Comments/Comments';
+import Youtube from './Youtube/Youtube';
+import SearchBar from './SearchBar/SearchBar';
+import VideoList from './VideoList/VideoList';
+import VideoInfo from './VideoInfo/VideoInfo';
 
 
 class App extends Component {
@@ -9,7 +13,9 @@ class App extends Component {
         super(props);
         this.state = {
             video: [],
-            comments: [{body:""}]
+            comments: [{body:""}],
+            searchedVideos: [],
+            selectedVideo: null
         };
     }
 
@@ -17,18 +23,18 @@ class App extends Component {
         this.getAllComments();
     }
 
-    // async getVideo () {
-    //     try {
-    //         let response = await axios.get('https://www.googleapis.com/youtube/v3/videos?id=eVTXPUF4Oz4&key=AIzaSyD_TOCmtpNdfCJuibaTjVk0KYOGC5tMLfE');
-    //         console.log(response.data);
-    //         this.setState ({
-    //             video: response.data
-    //         })
-    //     }
-    //     catch (ex) {
-    //         alert('Error in API Call');
-    //     }
-    // }
+    async getVideo () {
+        try {
+            let response = await axios.get('https://www.googleapis.com/youtube/v3/videos?id=eVTXPUF4Oz4&key=AIzaSyD_TOCmtpNdfCJuibaTjVk0KYOGC5tMLfE');
+            console.log(response.data);
+            this.setState ({
+                video: response.data
+            })
+        }
+        catch (ex) {
+            alert('Error in API Call');
+        }
+    }
 
     getAllComments = async () => {
         try {
@@ -54,12 +60,31 @@ class App extends Component {
         }
     };
 
+    handleSubmit = async (termFromSearchBar) => {
+        const response = await Youtube.get('/search', {
+            params: {
+                q: termFromSearchBar
+            }
+        })
+        this.setState({
+            searchedVideos: response.data.items
+        })
+    };
+
+    handleVideoSelect = (video) => {
+        this.setState({selectedVideo: video})
+    }
+
     render() { 
         return (
             <div>
+                <SearchBar handleFormSubmit = {this.handleSubmit} />
+                <h1>{console.log(this.state.searchedVideos)}</h1>
                 {console.log(this.state.video)}
                 <h1> What's up? You wanna buy some YouTube?!</h1>
+                <VideoList handleVideoSelect = {this.handleVideoSelect} videos = {this.state.searchedVideos} />
                 <VideoPlayer />
+                <VideoInfo video = {this.state.selectedVideo} />
                 <Comments addComment={this.addComment} getAllComments={this.getAllComments}/>
             </div>
         );
