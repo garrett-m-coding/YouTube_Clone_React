@@ -6,7 +6,7 @@ class AddComment extends Component {
       super(props);
       this.state = {
         body: "",
-        videoId: "",
+        videoId: this.props.videoSrc,
         likes: 0,
         dislikes: 0,
       };

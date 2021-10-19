@@ -1,9 +1,10 @@
 import React from 'react';
 
-const DisplayComments = () => {
+const DisplayComments = (props) => {
     return (
         <div>
-            <p>hello fake coder, this is hard-coded, solve for REALSIES</p>
+            <p>{props.getAllComments}</p>
+            {console.log(props.getAllComments)}
             <button type="submit">Like Comment</button>
             <button type="submit">Dislike Comment</button>
         </div>
