@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import VideoPlayer from './VideoPlayer/VideoPlayer';
-import Comments from './Comments/Comments';
 import Youtube from './Youtube/Youtube';
 import SearchBar from './SearchBar/SearchBar';
 import VideoList from './VideoList/VideoList';
@@ -83,9 +81,7 @@ class App extends Component {
                 {console.log(this.state.video)}
                 <h1> What's up? You wanna buy some YouTube?!</h1>
                 <VideoList handleVideoSelect = {this.handleVideoSelect} videos = {this.state.searchedVideos} />
-                <VideoPlayer />
-                <VideoInfo video = {this.state.selectedVideo} />
-                <Comments addComment={this.addComment} getAllComments={this.getAllComments}/>
+                <VideoInfo video = {this.state.selectedVideo} addComment={this.addComment} getAllComments={this.getAllComments}/>
             </div>
         );
     }

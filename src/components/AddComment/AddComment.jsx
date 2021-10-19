@@ -47,7 +47,7 @@ class AddComment extends Component {
             required="required"
             placeholder="Enter videoId from URL 'v=...'"
             onChange={this.handleChange}
-            value={this.state.videoId}
+            value={this.props.videoSrc}
           />
           <button type="submit">Add Comment</button>
         </form>
