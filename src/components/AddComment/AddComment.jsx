@@ -32,23 +32,17 @@ class AddComment extends Component {
     render() {
       return (
         <form onSubmit={this.handleSubmit}>
-          <label>Comment</label>
-          <input
+          <label>Add Your Comment</label><br />
+          <textarea
+            rows="3"
+            cols="50"
             type="text"
             name="body"
             required="required"
             placeholder="Enter a polite uplifting positive comment..."
             onChange={this.handleChange}
             value={this.state.body}
-          />
-          <input
-            type="text"
-            name="videoId"
-            required="required"
-            placeholder="Enter videoId from URL 'v=...'"
-            onChange={this.handleChange}
-            value={this.props.videoSrc}
-          />
+          /><br />
           <button type="submit">Add Comment</button>
         </form>
       );
