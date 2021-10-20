@@ -1,0 +1,19 @@
+.td {
+    border: 3px solid #253d5bff;
+    text-align: left;
+    padding: 15px;
+    font-size: 15px;
+    color: white;
+    background-color: white;
+}
+
+.table {
+    background-color: black;
+}
+
+.buttonCenter {
+    border: 3px solid #253d5bff;
+    text-align: center;
+    padding: 15px;
+    font-size: 15px;
+}
