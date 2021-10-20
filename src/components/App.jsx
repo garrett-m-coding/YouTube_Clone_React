@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getAllComments();
+    this.getVideo();
   }
 
   async getVideo() {
@@ -36,10 +36,11 @@ class App extends Component {
     }
   }
 
-  getAllComments = async () => {
+  getAllComments = async (videoSrc) => {
+      console.log(videoSrc)
     try {
       let responseAllComments = await axios.get(
-      "http://127.0.0.1:8000/comments/eVTXPUF4Oz4"
+      `http://127.0.0.1:8000/comments/${videoSrc}`
       );
       console.log(responseAllComments.data);
       this.setState({
@@ -57,7 +58,7 @@ class App extends Component {
         newComment
       );
       console.log(responseCreateComment.data);
-      this.getAllComments();
+      this.getAllComments(newComment.videoId);
     } catch (ex) {
       console.log("Error in API call:", ex);
     }
@@ -81,9 +82,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div class="container">
-          <div class="row">
-            <div class="col-8" align="center">
+        <div className="container">
+          <div className="row">
+            <div className="col-8" align="center">
               <h1>{console.log(this.state.searchedVideos)}</h1>
               {console.log(this.state.video)}
               <h1> WELCOME TO YOUTUBE CLONE!</h1>
@@ -96,7 +97,7 @@ class App extends Component {
                 getAllComments={this.getAllComments}
               />
             </div>
-            <div class="col-4" align="center">
+            <div className="col-4" align="center">
               <SearchBar handleFormSubmit={this.handleSubmit} />
               <VideoList
                 handleVideoSelect={this.handleVideoSelect}

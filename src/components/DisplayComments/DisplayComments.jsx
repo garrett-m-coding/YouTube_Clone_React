@@ -1,14 +1,20 @@
 import React from 'react';
+import { useEffect } from 'react/cjs/react.development';
 import './DisplayComments.css' 
 
 
 const DisplayComments = (props) => {
-    console.log(props.comments);
+    console.log(props.comments , props.videoSrc);
+
+    useEffect(()=> {
+        props.getAllComments(props.videoSrc)
+    }, [props.getAllComments, props.videoSrc, props.commen])
+
     return (
-        <div>
+        <div className = "table-responsive">
             <br/>
             <h3>Comments</h3>    
-            {console.log(props.videoSrc)}
+        
             <table className="table">
                 <thead>
                     <tr>
