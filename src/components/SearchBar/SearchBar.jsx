@@ -22,11 +22,12 @@ class SearchBar extends React.Component {
             <div className = "searching">
                 <form onSubmit = {this.handleSubmit}>
                     <div>
-                        <label htmlFor = "video-search">Video Search</label>
+                        <h3><label htmlFor = "video-search">Video Search</label></h3>
                         <input onChange = {this.handleChange} name = 'video-search' type = "text" value = {this.state.term} />
                         <button type = "submit">Search Now!</button>
                     </div>
                 </form>
+                    <br/><h5>Related Videos:</h5>
             </div>
          );
     }

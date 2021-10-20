@@ -6,7 +6,7 @@ import './VideoInfo.css'
 
 const VideoInfo = (props) => {
     if (!props.video) {
-        return <div>Please search for a video, then click on your selection.</div>;
+        return <h5 className="textVI">Please search for a video, then click on your selection.</h5>;
     }
     const videoSrc = props.video.id.videoId;
     return ( 

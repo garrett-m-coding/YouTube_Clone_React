@@ -4,6 +4,8 @@ import Youtube from "./Youtube/Youtube";
 import SearchBar from "./SearchBar/SearchBar";
 import VideoList from "./VideoList/VideoList";
 import VideoInfo from "./VideoInfo/VideoInfo";
+import './App.css';
+
 
 class App extends Component {
   constructor(props) {
@@ -23,7 +25,7 @@ class App extends Component {
   async getVideo() {
     try {
       let response = await axios.get(
-        "https://www.googleapis.com/youtube/v3/videos?id=eVTXPUF4Oz4&key=AIzaSyD_TOCmtpNdfCJuibaTjVk0KYOGC5tMLfE"
+        "https://www.googleapis.com/youtube/v3/videos?id=eVTXPUF4Oz4&key=AIzaSyC5486ZAlOwzgJqpBJW6y5L5_cjCdRUY7Q"
       );
       console.log(response.data);
       this.setState({
@@ -84,7 +86,9 @@ class App extends Component {
             <div class="col-8" align="center">
               <h1>{console.log(this.state.searchedVideos)}</h1>
               {console.log(this.state.video)}
-              <h1> What's up? You wanna buy some YouTube?!</h1>
+              <h1> WELCOME TO YOUTUBE CLONE!</h1>
+              <h2 className="text">This is not as good as YouTube...</h2>
+                <h2 className="text">but hey, no ads!</h2>
               <VideoInfo
                 video={this.state.selectedVideo}
                 comments={this.state.comments}
